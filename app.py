@@ -7,6 +7,7 @@ from resources.student_login import StudentLogin
 from resources.add_student import AddStudent
 from resources.admin_details import AdminDetails
 from resources.student_details import StudentDetails
+from resources.admin_students import AdminStudents
 
 
 app = Flask(__name__)
@@ -23,6 +24,7 @@ api.add_resource(StudentLogin, '/student-login')
 api.add_resource(AddStudent, '/add-student')
 api.add_resource(AdminDetails, '/admin-details')
 api.add_resource(StudentDetails, '/student-details')
+api.add_resource(AdminStudents, '/admin-students')
 
 jwt=JWTManager(app)
 
