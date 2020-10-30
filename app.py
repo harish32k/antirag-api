@@ -3,6 +3,7 @@ from flask_restful import Api
 from flask_jwt_extended import JWTManager
 
 from resources.admin_login import AdminLogin
+from resources.student_login import StudentLogin
 
 app = Flask(__name__)
 
@@ -14,6 +15,7 @@ app.config['JWT_SECRET_KEY'] = 'hacktober'
 api = Api(app)
 
 api.add_resource(AdminLogin, '/admin-login')
+api.add_resource(StudentLogin, '/student-login')
 
 jwt=JWTManager(app)
 
