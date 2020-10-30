@@ -36,7 +36,7 @@ def invalid_token_callback(error):
 
 @app.route('/')
 def home():
-    return("<h1 style='font-family: sans-serif;'>This is an API for CBIT anti ragging utility</h1>.")
+    return("<h1 style='font-family: sans-serif;'>This is an API for CBIT anti ragging utility.</h1>")
 
 if __name__ == '__main__':
     app.run(debug=False)

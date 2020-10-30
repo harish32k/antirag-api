@@ -48,5 +48,5 @@ class AdminLogin(Resource):
         admin=Admin.getAdminByAid(data['aid'])
         if admin and safe_str_cmp(admin.pword,data['pword']):
             access_token=create_access_token(identity=admin.aid,expires_delta=False)
-            return {'access_token':access_token},200
+            return {'aid': data['aid'], 'access_token':access_token},200
         return {"message":"Invalid Credentials!"}, 401
