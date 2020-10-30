@@ -5,6 +5,9 @@ from flask_jwt_extended import JWTManager
 from resources.admin_login import AdminLogin
 from resources.student_login import StudentLogin
 from resources.add_student import AddStudent
+from resources.admin_details import AdminDetails
+from resources.student_details import StudentDetails
+
 
 app = Flask(__name__)
 
@@ -18,6 +21,8 @@ api = Api(app)
 api.add_resource(AdminLogin, '/admin-login')
 api.add_resource(StudentLogin, '/student-login')
 api.add_resource(AddStudent, '/add-student')
+api.add_resource(AdminDetails, '/admin-details')
+api.add_resource(StudentDetails, '/student-details')
 
 jwt=JWTManager(app)
 
