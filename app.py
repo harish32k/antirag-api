@@ -4,6 +4,7 @@ from flask_jwt_extended import JWTManager
 
 from resources.admin_login import AdminLogin
 from resources.student_login import StudentLogin
+from resources.add_student import AddStudent
 
 app = Flask(__name__)
 
@@ -16,6 +17,7 @@ api = Api(app)
 
 api.add_resource(AdminLogin, '/admin-login')
 api.add_resource(StudentLogin, '/student-login')
+api.add_resource(AddStudent, '/add-student')
 
 jwt=JWTManager(app)
 
@@ -41,4 +43,4 @@ def home():
     return("<h1 style='font-family: sans-serif;'>This is an API for CBIT anti ragging utility.</h1>")
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
