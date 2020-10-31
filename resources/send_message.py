@@ -33,11 +33,19 @@ class SendMessage(Resource):
             vals_tuple = (data['roll'], data['message'], data['cid'])
             #convertToBlob is used to convert base64 string to BLOB data
 
-            qstr = f""" INSERT INTO messages (roll, message, cid)
+            qstr = f""" INSERT INTO Message (roll, message, cid)
                     values (%s, %s, %s); """
             cursor.execute(qstr, vals_tuple)
    
 
+            qstr = f"""
+            update Complaints
+            set resolved = 1
+            where cid = '{data['cid']}';
+            """
+
+            cursor.execute(qstr) 
+            
             qstr = f"""
             INSERT into Unopened (roll)
             values ('{data['roll']}');
