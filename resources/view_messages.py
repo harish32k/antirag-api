@@ -1,5 +1,5 @@
 from flask_restful import Resource, reqparse
-from db import query, connectToHost
+from db import query, connectToHost, encode
 import base64
 import pymysql
 from flask_jwt_extended import jwt_required
@@ -36,7 +36,8 @@ class ViewMessages(Resource):
             """
 
             cursor.execute(qstr) 
-            
+            result = encode(cursor.fetchall())
+
             qstr = f"""
             delete from Unopened
             where roll = '{data['roll']}';
@@ -59,6 +60,4 @@ class ViewMessages(Resource):
                 "message" : "There was an error connecting." + str(e)
             }, 500
         
-        return {
-            "message" : "Successful"
-        }, 200
+        return result, 200
