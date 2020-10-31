@@ -9,7 +9,7 @@ class SendMessage(Resource):
     #@jwt_required
     def post(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('roll', type=int, required=True, help="roll cannot be left blank!")
+        parser.add_argument('roll', type=str, required=True, help="roll cannot be left blank!")
         parser.add_argument('message', type=str, required=True, help="message cannot be left blank!")
         parser.add_argument('cid', type=str, required=True, help="cid cannot be left blank!")
         data = parser.parse_args()
@@ -34,9 +34,10 @@ class SendMessage(Resource):
             #convertToBlob is used to convert base64 string to BLOB data
 
             qstr = f""" INSERT INTO Message (roll, message, cid)
-                    values (%s, %s, %s); """
-            cursor.execute(qstr, vals_tuple)
-   
+                    values ("{data['roll']}", "{data['message']}", "{data['cid']}"); """
+            
+            cursor.execute(qstr)
+
 
             qstr = f"""
             update Complaints
@@ -46,12 +47,6 @@ class SendMessage(Resource):
 
             cursor.execute(qstr) 
             
-            # qstr = f"""
-            # INSERT into Unopened (roll)
-            # values ('{data['roll']}');
-            # """
-
-            # cursor.execute(qstr) 
             
             connection.commit() #commit the changes made
     
