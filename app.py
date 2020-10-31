@@ -14,6 +14,8 @@ from resources.first_login import FirstLogin
 from resources.send_message import SendMessage
 from resources.view_complaint import ViewComplaint
 from resources.view_messages import ViewMessages
+from resources.unread_count import UnreadCount
+from resources.unresolved_count import UnresolvedCount
 
 app = Flask(__name__)
 
@@ -36,6 +38,8 @@ api.add_resource(FirstLogin, '/first-login')
 api.add_resource(SendMessage, '/send-message')
 api.add_resource(ViewComplaint, '/view-complaint')
 api.add_resource(ViewMessages, '/view-messages')
+api.add_resource(UnreadCount, '/unread-count')
+api.add_resource(UnresolvedCount, '/unresolved-count')
 
 jwt=JWTManager(app)
 
