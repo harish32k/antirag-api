@@ -46,12 +46,12 @@ class SendMessage(Resource):
 
             cursor.execute(qstr) 
             
-            qstr = f"""
-            INSERT into Unopened (roll)
-            values ('{data['roll']}');
-            """
+            # qstr = f"""
+            # INSERT into Unopened (roll)
+            # values ('{data['roll']}');
+            # """
 
-            cursor.execute(qstr) 
+            # cursor.execute(qstr) 
             
             connection.commit() #commit the changes made
     

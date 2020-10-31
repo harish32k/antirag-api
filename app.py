@@ -12,6 +12,7 @@ from resources.add_complaint import ComplaintPost
 from resources.admin_complaints import AdminComplaints
 from resources.first_login import FirstLogin
 from resources.send_message import SendMessage
+from resources.view_complaint import ViewComplaint
 
 app = Flask(__name__)
 
@@ -32,6 +33,7 @@ api.add_resource(ComplaintPost, '/add-complaint')
 api.add_resource(AdminComplaints, '/admin-complaints')
 api.add_resource(FirstLogin, '/first-login')
 api.add_resource(SendMessage, '/send-message')
+api.add_resource(ViewComplaint, '/view-complaint')
 
 jwt=JWTManager(app)
 
