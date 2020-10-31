@@ -9,6 +9,7 @@ from resources.admin_details import AdminDetails
 from resources.student_details import StudentDetails
 from resources.admin_students import AdminStudents
 from resources.add_complaint import ComplaintPost
+from resources.admin_complaints import AdminComplaints
 
 
 app = Flask(__name__)
@@ -27,6 +28,7 @@ api.add_resource(AdminDetails, '/admin-details')
 api.add_resource(StudentDetails, '/student-details')
 api.add_resource(AdminStudents, '/admin-students')
 api.add_resource(ComplaintPost, '/add-complaint')
+api.add_resource(AdminComplaints, '/admin-complaints')
 
 jwt=JWTManager(app)
 
