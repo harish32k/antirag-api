@@ -6,7 +6,7 @@ from flask_jwt_extended import jwt_required
 
 class ViewMessages(Resource):
     
-    #@jwt_required
+    @jwt_required
 
     def post(self):
         parser = reqparse.RequestParser()

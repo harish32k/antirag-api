@@ -7,7 +7,7 @@ from flask_jwt_extended import jwt_required
 
 class AdminDetails(Resource):
     
-    #@jwt_required
+    @jwt_required
     def get(self):
         parser = reqparse.RequestParser()
         parser.add_argument('aid', type=str, help="aid cannot be left blank!")

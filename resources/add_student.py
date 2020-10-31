@@ -8,7 +8,7 @@ from flask_jwt_extended import jwt_required
 userdb = 'Hackathonproject'
 
 class AddStudent(Resource):
-    #@jwt_required
+    @jwt_required
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('sname', type=str, required=True, help="sname cannot be left blank!")

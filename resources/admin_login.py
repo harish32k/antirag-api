@@ -17,7 +17,7 @@ class Admin():
 
 class AdminLogin(Resource):
     
-    #@jwt_required
+    
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('aid', type=str, help="aid cannot be left blank!")

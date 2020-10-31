@@ -6,7 +6,7 @@ from flask_jwt_extended import jwt_required
 
 class SendMessage(Resource):
     
-    #@jwt_required
+    @jwt_required
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('roll', type=str, required=True, help="roll cannot be left blank!")

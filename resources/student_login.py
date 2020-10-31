@@ -17,7 +17,6 @@ class Student():
 
 class StudentLogin(Resource):
     
-    #@jwt_required
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('roll', type=str, help="roll cannot be left blank!")
