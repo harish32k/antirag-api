@@ -20,10 +20,10 @@ class ComplaintPost(Resource):
         parser.add_argument('details', type=str, required=True, help="details cannot be left blank!")
         parser.add_argument('level_of_threat', type=str, required=True, help="level_of_threat cannot be left blank!")
         parser.add_argument('image', type=str, required=False, default=None, help="image is null if left blank!")
-        parser.add_argument('resolved', type=str, required=True, help="resolved cannot be left blank!")
+        parser.add_argument('resolved', type=str, required=False, help="resolved cannot be left blank!")
         data = parser.parse_args()
         
-        
+        data['resolved'] = "0"
 
         # a transaction is made, so not using query function from db module
         # we use connectToHost function from db module and commit explicitly
